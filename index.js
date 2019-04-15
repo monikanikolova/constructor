@@ -8,27 +8,29 @@ function playGame() {
     var word = new Word(randomWord);
     var isDone = false;
 
-    while (!isDone) {
+    function myfunc() {
         inquirer
         .prompt([
             {
                 type: "input",
                 name: "guess",
                 message: "GUESS A LETTER!"
-            },
-            {
-                type: "input",
-                name: "guess",
-                message: "GUESS A LETTER!"
-            },
-
+            }
         ])
         .then(letter => {
             word.checkChar(letter.guess);
             word.displayWord();
+            var correct = false;
 
+            if (correct) {
+                // do right stuff
+            } else {
+                myfunc();
+            }
         });
     }
+
+    myfunc();
    
 }
 
